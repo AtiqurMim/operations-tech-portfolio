@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md. Atiqur Rahman | Operations Technology & Production Systems Manager</title>
+  <style>
+    :root {
+      --vertika-teal: #006B7D;
+      --vertika-dark-teal: #004D5A;
+      --vertika-navy: #2D3748;
+      --vertika-ice: #F0F7F9;
+      --slate-gray: #5A6A85;
+      --light-border: #E2E8F0;
+      --shadow: rgba(0, 107, 125, 0.05);
+      --notion-gray: #F4F5F7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #F8FAFC;
+      color: var(--vertika-navy);
+      line-height: 1.5;
+      padding: 15px;
+    }
+
+    /* Optimized Low-Profile Control Header */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 2px solid var(--vertika-teal);
+      padding: 8px 16px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 950px;
+      margin: 0 auto 15px auto;
+      border-radius: 0 0 6px 8px;
+    }
+
+    .sticky-title {
+      font-weight: 700;
+      font-size: 10.5pt;
+      color: var(--vertika-teal);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dropdown-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .share-trigger-btn {
+      background-color: var(--vertika-teal);
+      color: #ffffff;
+      border: 1px solid var(--vertika-teal);
+      padding: 6px 14px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background-color 0.2s ease;
+    }
+
+    .share-trigger-btn:hover {
+      background-color: var(--vertika-dark-teal);
+    }
+
+    .dropdown-panel {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      margin-top: 5px;
+      background-color: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      border: 1px solid var(--light-border);
+      border-radius: 4px;
+      overflow: hidden;
+      z-index: 1010;
+    }
+
+    .dropdown-panel a {
+      color: var(--vertika-navy);
+      padding: 10px 14px;
+      text-decoration: none;
+      display: block;
+      font-size: 9.5pt;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .dropdown-panel a:hover {
+      background-color: var(--vertika-ice);
+      color: var(--vertika-teal);
+    }
+
+    .dropdown-wrapper:hover .dropdown-panel {
+      display: block;
+    }
+
+    /* Streamlined Profile Header Card */
+    .portfolio-card {
+      max-width: 950px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px var(--shadow);
+      border: 1px solid var(--light-border);
+      overflow: hidden;
+    }
+
+    .profile-hero {
+      background: #ffffff;
+      padding: 20px 30px 15px 30px;
+      border-bottom: 1px solid var(--light-border);
+    }
+
+    .profile-hero h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--vertika-teal);
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 2px;
+    }
+
+    .profile-hero .headline-title {
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--vertika-navy);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-ribbon {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 12px;
+      background: #FAFAFA;
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px dashed var(--light-border);
+    }
+
+    .metric-pill {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--vertika-teal);
+    }
+
+    .metric-pill span {
+      color: var(--vertika-navy);
+      font-weight: 400;
+    }
+
+    .contact-flex-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 9pt;
+      color: var(--slate-gray);
+      border-top: 1px solid var(--light-border);
+      padding-top: 10px;
+    }
+
+    .contact-left-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .hyperlink-anchor {
+      color: var(--vertika-teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hyperlink-anchor:hover {
+      text-decoration: underline;
+    }
+
+    /* Tab Controls */
+    .tab-navigation {
+      display: flex;
+      background: var(--vertika-ice);
+      border-bottom: 1px solid var(--light-border);
+    }
+
+    .tab-trigger {
+      flex: 1;
+      padding: 12px;
+      background: none;
+      border: none;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--slate-gray);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.15s ease;
+    }
+
+    .tab-trigger:hover {
+      color: var(--vertika-teal);
+    }
+
+    .tab-trigger.active-tab {
+      color: var(--vertika-teal);
+      background: #ffffff;
+      border-top: 3px solid var(--vertika-teal);
+      margin-top: -3px;
+    }
+
+    /* Content Viewports */
+    .content-viewport {
+      padding: 30px;
+      display: none;
+    }
+
+    .content-viewport.active-view {
+      display: block;
+    }
+
+    h2 {
+      color: var(--vertika-teal);
+      font-size: 11.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--light-border);
+      padding-bottom: 3px;
+      margin-top: 18px;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 10px;
+      font-size: 9.5pt;
+    }
+
+    ul {
+      margin-bottom: 12px;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 4px;
+      text-align: justify;
+      font-size: 9.5pt;
+    }
+
+    .timeline-item {
+      margin-bottom: 14px;
+    }
+
+    .timeline-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 10pt;
+      color: var(--vertika-navy);
+      margin-bottom: 1px;
+    }
+
+    .timeline-location-line {
+      color: var(--vertika-teal);
+      font-weight: 600;
+      font-size: 9pt;
+      margin-bottom: 4px;
+    }
+
+    .callout-box {
+      background: var(--vertika-ice);
+      border-left: 4px solid var(--vertika-teal);
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .callout-box h3 {
+      color: var(--vertika-teal);
+      font-size: 10.5pt;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .competency-item {
+      margin-bottom: 8px;
+      text-align: justify;
+      font-size: 9.5pt;
+    }
+
+    .competency-label {
+      font-weight: 700;
+      color: var(--vertika-teal);
+    }
+
+    /* Notion System Pipeline Emulator Layout */
+    .notion-board {
+      background: var(--notion-gray);
+      border-radius: 6px;
+      padding: 15px;
+      margin: 12px 0 20px 0;
+      border: 1px solid var(--light-border);
+    }
+
+    .notion-selector-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .notion-select-btn {
+      padding: 6px 12px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      background: #ffffff;
+      border: 1px solid var(--light-border);
+      border-radius: 4px;
+      color: var(--vertika-navy);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .notion-select-btn.active-order {
+      background: var(--vertika-teal);
+      color: #ffffff;
+      border-color: var(--vertika-teal);
+    }
+
+    .notion-grid-view {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .notion-col {
+      background: #ffffff;
+      border-radius: 5px;
+      padding: 12px;
+      border: 1px solid var(--light-border);
+    }
+
+    .notion-col-title {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--slate-gray);
+      margin-bottom: 8px;
+      border-bottom: 2px solid var(--notion-gray);
+      padding-bottom: 4px;
+    }
+
+    .notion-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 8pt;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .badge-clear { background-color: #DEF7EC; color: #03543F; }
+    .badge-hold { background-color: #FDE8E8; color: #9B1C1C; }
+    .badge-process { background-color: #E1EFFE; color: #1E429F; }
+
+    /* Sandbox Interactive Control Interface */
+    .sandbox-container {
+      background: #ffffff;
+      border: 1px solid var(--vertika-teal);
+      border-radius: 6px;
+      padding: 15px;
+      margin: 15px 0 20px 0;
+    }
+
+    .sandbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .sandbox-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sandbox-field label {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--slate-gray);
+    }
+
+    .sandbox-field select {
+      padding: 6px;
+      border: 1px solid var(--light-border);
+      border-radius: 4px;
+      background: #ffffff;
+      color: var(--vertika-navy);
+      font-size: 9pt;
+    }
+
+    .sandbox-action-btn {
+      background: var(--vertika-teal);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .sandbox-action-btn:hover {
+      background-color: var(--vertika-dark-teal);
+    }
+
+    .sandbox-terminal {
+      background: #2D3748;
+      color: #34D399;
+      font-family: monospace;
+      font-size: 9pt;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 12px;
+      min-height: 45px;
+      border-left: 4px solid #34D399;
+    }
+
+    .sop-block {
+      background: #FAFAFA;
+      border: 1px solid var(--light-border);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+    }
+
+    .sop-title {
+      font-weight: 700;
+      color: var(--vertika-teal);
+      font-size: 9.5pt;
+      margin-bottom: 1px;
+    }
+
+    @media (max-width: 750px) {
+      body { padding: 5px; }
+      .sticky-header { flex-direction: column; gap: 8px; align-items: stretch; text-align: center; }
+      .profile-hero { padding: 15px; }
+      .content-viewport { padding: 15px; }
+      .timeline-row { flex-direction: column; }
+      .contact-flex-bar { flex-direction: column; gap: 6px; }
+      .metric-ribbon { flex-direction: column; gap: 4px; }
+      .notion-selector-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Low Profile Sticky Control Header -->
+  <div class="sticky-header">
+    <div class="sticky-title">System Port: Operational Gateway</div>
+    <div class="dropdown-wrapper">
+      <button class="share-trigger-btn">Share Portfolio ▾</button>
+      <div class="dropdown-panel">
+        <a href="#" id="pdfDownloadAnchor" download="Md_Atiqur_Rahman_Master_CV.pdf">Download PDF CV</a>
+        <a href="#" onclick="navigator.clipboard.writeText(window.location.href); alert('Live Portfolio URL Copied to Clipboard.'); return false;">Copy Live Link</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-card">
+    <header class="profile-hero">
+      <h1>Md. Atiqur Rahman</h1>
+      <div class="headline-title">Operations Technology & Production Systems Manager</div>
+      
+      <div class="metric-ribbon">
+        <div class="metric-pill">$5.93M <span>Cumulative Revenue</span></div>
+        <div class="metric-pill">4+ Yrs <span>Operations Leadership</span></div>
+        <div class="metric-pill">15+ <span>Scientific Publications</span></div>
+      </div>
+
+      <div class="contact-flex-bar">
+        <div class="contact-left-group">
+          <div>✉ <a href="mailto:atiqur.rahman.mim@gmail.com" class="hyperlink-anchor">atiqur.rahman.mim@gmail.com</a></div>
+          <div>✆ <a href="https://wa.me/8801716897917" target="_blank" class="hyperlink-anchor">+8801716897917</a> (WhatsApp / Cell)</div>
+          <div>📍 Dinajpur, Bangladesh</div>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/in/md-atiqur-rahman-09529730" target="_blank" class="hyperlink-anchor">LinkedIn</a> &nbsp;|&nbsp;
+          <a href="https://scholar.google.com/citations?user=cmredeEAAAAJ&hl=en" target="_blank" class="hyperlink-anchor">Google Scholar</a> &nbsp;|&nbsp;
+          <a href="https://www.researchgate.net/profile/Md_Atiqur_Rahman6" target="_blank" class="hyperlink-anchor">ResearchGate</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Professional Tab Control Navigation -->
+    <nav class="tab-navigation">
+      <button class="tab-trigger active-tab" onclick="switchActiveTab(event, 'resume-panel')">Executive Profile</button>
+      <button class="tab-trigger" onclick="switchActiveTab(event, 'alignment-panel')">Strategic Value Alignment</button>
+    </nav>
+
+    <!-- ====================================================================== -->
+    <!-- PANEL 1: EXECUTIVE PROFILE (EXACT FACTUAL CV)                         -->
+    <!-- ====================================================================== -->
+    <main id="resume-panel" class="content-viewport active-view">
+      <h2>Professional Summary</h2>
+      <p>Data-driven Operations Leader with an M.Sc. in Computer Science and over 4 years of hands-on experience optimising production pipelines, scheduling, and logistics for the US promotional apparel market. Proven track record of managing end-to-end supply chain architectures, driving $5.93M in verified cumulative revenue, and implementing automations and SOP networks to scale operations. Expert at bridging technical data infrastructure with shop-floor manufacturing efficiency to eliminate operational variance.</p>
+
+      <h2>Core Competencies</h2>
+      <div class="competency-item"><span class="competency-label">Production Architecture:</span> Production Planning & Control (PPC), Capacity Scheduling, End-to-End Workflow Optimisation</div>
+      <div class="competency-item"><span class="competency-label">Operations Technology:</span> System Integration, ERP/PLM Data Synchronisation, AI-Agent Reporting, Process Automation</div>
+      <div class="competency-item"><span class="competency-label">Supply Chain & Governance:</span> International Procurement, Contract Negotiation, Multi-Million Dollar Vendor Management, Global Compliance</div>
+      <div class="competency-item"><span class="competency-label">Leadership & Scaling:</span> SOP Design (Notion/Loom), Cross-Functional Team Oversight, KPI Mapping</div>
+
+      <h2>Professional Experience</h2>
+      <div class="timeline-item">
+        <div class="timeline-row">
+          <span>Production Lead</span>
+          <span>May 2022 – Present</span>
+        </div>
+        <div class="timeline-location-line">The Collegiate Lineup LLC, Tampa, FL, USA (Remote)</div>
+        <ul>
+          <li>Directly own the production planning, capacity scheduling, and procurement backbone for a high-volume US promotional apparel operator.</li>
+          <li><strong>Output Scale:</strong> Executed 45.9% of total historical organisational output, driving $5.93M in verified cumulative revenue and $1.44M+ in net profit.</li>
+          <li><strong>Systems Optimisation:</strong> Designed and deployed automated reporting mechanisms and cloud-based workflow structures to synchronise data pipelines between vendor manufacturing facilities and fulfilment nodes.</li>
+          <li><strong>Resource Allocation:</strong> Manage international procurement, evaluate vendor compliance matrices, and approve final payments across multi-tiered supplier networks.</li>
+          <li><strong>Risk Mitigation:</strong> Maintained operational continuity during structural team scaling, systematically identifying and resolving production bottlenecks to protect over $650K in at-risk annual value.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-row">
+          <span>Head of IT Department</span>
+          <span>Mar 2019 – Jul 2022</span>
+        </div>
+        <div class="timeline-location-line">Dhaka Central International Medical College Hospital, Dhaka, Bangladesh</div>
+        <ul>
+          <li>Served as senior technology executive reporting directly to the Chairman, leading cross-functional technology strategies, privacy functions, and infrastructure deployment.</li>
+          <li><strong>Infrastructure Design:</strong> Structured and managed complex networks and enterprise software deployments across Pharmacies, Diagnostics, Logistics, and Administration.</li>
+          <li><strong>Vendor & Team Governance:</strong> Directed in-house engineering skill development and governed critical SLA matrices for high-value technology vendors.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-row">
+          <span>Head of Operations</span>
+          <span>Jul 2017 – Feb 2019</span>
+        </div>
+        <div class="timeline-location-line">Innovative Trade, Dhaka, Bangladesh</div>
+        <ul>
+          <li>Oversaw institutional finance operations, technical assets, regulatory compliance frameworks, and business development initiatives.</li>
+          <li><strong>Capital Execution:</strong> Successfully executed a USD $4.5M International Competitive Tender from Singapore, earning the organisation's highest individual performance honour.</li>
+          <li><strong>Policy Architecture:</strong> Designed and deployed internal operational policies and CRM tech stacks that modernised customer service response times and workforce productivity.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-row">
+          <span>Coordinator – Operations & Networks</span>
+          <span>Aug 2014 – Jul 2017</span>
+        </div>
+        <div class="timeline-location-line">Lexicon Merchandise, Dhaka, Bangladesh</div>
+        <ul>
+          <li>Managed corporate procurement strategies, contract negotiations, and provider integration functions.</li>
+        </ul>
+      </div>
+
+      <h2>Education & Certifications</h2>
+      <ul>
+        <li><strong>M.Sc. in Computer Science</strong> — South Asian University (SAARC), New Delhi, India (2014)<br>
+          <small>• Awarded 100% Tuition-Waived SAARC Silver Jubilee Scholarship | Awarded Bangabandhu Fellowship in ICT by the Ministry of ICT, Bangladesh</small>
+        </li>
+        <li style="margin-top: 6px;"><strong>B.Sc. in Electronics & Telecommunication Engineering</strong> — Daffodil International University, Dhaka (2012)</li>
+        <li style="margin-top: 6px;"><strong>Language Proficiency:</strong> English – IELTS General Band 7.0 (CEFR C1) | Native Bangla</li>
+      </ul>
+
+      <h2>Publications & Research Output</h2>
+      <p>Author of 15+ scientific publications in international journals on Machine Learning, Automation, Image Analysis, and Cloud Infrastructure. Accumulated 312 citations with an h-index of 10 along with an i10-index of 10.</p>
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- PANEL 2: STRATEGIC VALUE ALIGNMENT (PROMO-CENTERED INTERFACES)        -->
+    <!-- ====================================================================== -->
+    <main id="alignment-panel" class="content-viewport">
+      <h2>Operational Strategy Thesis</h2>
+      <p>A promotional consultancies' delivery scale depends directly on data consistency between sales endpoints and shop-floor production loops. Based on 4+ years of remote workflow management in the US custom apparel space, operational scale depends on replacing manual data entry with standardized integration. My background in Computer Science allows me to build stable tracking paths that reduce communication delays, prevent fulfillment errors, and protect internal team bandwidth.</p>
+
+      <h2>Notion Order Processing SOP Architecture</h2>
+      <p>Fulfillment reliability requires structured pipelines instead of manual email chains. Below is an emulator of how standard order criteria maps across core tracking columns based on my factory playbooks. Click an order type to preview the column layout tracking update:</p>
+      
+      <!-- Interactive Notion System Pipeline Emulator -->
+      <div class="notion-board">
+        <div class="notion-selector-bar">
+          <button class="notion-select-btn active-order" onclick="runNotionSimulator(this, 'order1')">Standard Promo Order (Embroidery Bulk)</button>
+          <button class="notion-select-btn" onclick="runNotionSimulator(this, 'order2')">Problematic File Order (Low-Res Image Mockup)</button>
+          <button class="notion-select-btn" onclick="runNotionSimulator(this, 'order3')">Tight Deadline Order (Hard Event In-Hands Date)</button>
+        </div>
+
+        <div class="notion-grid-view">
+          <div class="notion-col">
+            <div class="notion-col-title">Pre-Flight Review Gate</div>
+            <p style="font-size:9pt; color:var(--slate-gray); margin-bottom:5px;">Factory Submission Checklist</p>
+            <div id="gate1Status" class="notion-badge badge-clear">Vector File Approved</div>
+          </div>
+          <div class="notion-col">
+            <div class="notion-col-title">Handoff Execution Gate</div>
+            <p style="font-size:9pt; color:var(--slate-gray); margin-bottom:5px;">Processing & Sending Orders</p>
+            <div id="gate2Status" class="notion-badge badge-process">PO Transmitted to Vendor</div>
+          </div>
+          <div class="notion-col">
+            <div class="notion-col-title">Freight Logistics Gate</div>
+            <p style="font-size:9pt; color:var(--slate-gray); margin-bottom:5px;">Rush Shipping Policy</p>
+            <div id="gate3Status" class="notion-badge badge-clear">Standard Ground Route</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Automation Sandbox Using Promo Parameters -->
+      <h2>Live System Sandbox: Order Processing Simulation</h2>
+      <p>Test the rules engine configuration below. Adjust the customer's vector status, deadline variables, and factory availability parameters to watch how a software-supported script manages order exceptions automatically:</p>
+      
+      <div class="sandbox-container">
+        <div class="sandbox-grid">
+          <div class="sandbox-field">
+            <label>Customer Artwork File</label>
+            <select id="sbArt">
+              <option value="verified">Vector File Ready (.AI / .EPS)</option>
+              <option value="pending">Blurry / Low-Res Raster Web Graphic</option>
+            </select>
+          </div>
+          <div class="sandbox-field">
+            <label>In-Hands Date Window</label>
+            <select id="sbTime">
+              <option value="standard">Standard Execution (>10 Open Days)</option>
+              <option value="rush">Event Rush Target (&lt;5 Days Alert)</option>
+            </select>
+          </div>
+          <div class="sandbox-field">
+            <label>Preferred Supplier Capacity</label>
+            <select id="sbVendor">
+              <option value="clear">SLA Space Open (Production Slots Clear)</option>
+              <option value="maxed">Preferred Factory Fully Booked</option>
+            </select>
+          </div>
+        </div>
+        <button class="sandbox-action-btn" onclick="executeSandboxRule()">Simulate Order Tracking Flow</button>
+        <div class="sandbox-terminal" id="sbTerminal">> System Standby. Calibrate promo order parameters and click to route...</div>
+      </div>
+
+      <!-- Content precisely preserved as highlighted inside image_b1e4a2.png -->
+      <h2>Targeted Operational Value Matrix</h2>
+      <div class="competency-item">
+        <span class="competency-label">Fulfillment Stability:</span> Managing custom manufacturing processes from initial layout review to final carrier hand-off. Relational databases can be used to track production status, shielding leadership from routine order check-ins.
+      </div>
+      <div class="competency-item">
+        <span class="competency-label">Pipeline Automation:</span> Replacing manual order logging with automated scripts using Shopify API webhooks and data pipelines to eliminate data duplication between suppliers and customers.
+      </div>
+      <div class="competency-item">
+        <span class="competency-label">Lead Data Validation:</span> Applying an engineering background to clean, process, and organize client prospecting data across core sectors like healthcare networks, universities, and industrial corporations to optimize outbound sales workflows.
+      </div>
+
+      <div class="callout-box">
+        <h3>Cross-Border Infrastructure Safeguards</h3>
+        <p>To ensure consistent operational support and clear communication across the US EST calendar, my remote workspace uses independent redundancy layers:</p>
+        <ul>
+          <li><strong>Network Continuity:</strong> Dual high-speed fiber-optic lines routed through load-balancing failover hardware, supported by secondary mobile data hot-spots to prevent connectivity drop-offs.</li>
+          <li><strong>Power Redundancy:</strong> Dedicated backup laptop environment with standalone power reserves to ensure execution flow stability.</li>
+          <li><strong>Communications:</strong> Direct availability via a dedicated currently BD personal number (+8801716897917) and dedicated Google Voice US number in planning.</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var pdfDataString = "%%PDF_B64_TOKEN%%";
+      if(!pdfDataString.startsWith("%%")) {
+        document.getElementById('pdfDownloadAnchor').setAttribute('href', 'data:application/pdf;base64,' + pdfDataString);
+      }
+    });
+
+    function switchActiveTab(event, viewId) {
+      const panes = document.querySelectorAll('.content-viewport');
+      const tabs = document.querySelectorAll('.tab-trigger');
+      
+      panes.forEach(pane => pane.classList.remove('active-view'));
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
+      
+      document.getElementById(viewId).classList.add('active-view');
+      event.currentTarget.classList.add('active-tab');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* Notion Kanban Board Data Matrix Map */
+    const orderData = {
+      order1: { g1: ["Vector File Approved", "badge-clear"], g2: ["PO Transmitted to Vendor", "badge-process"], g3: ["Standard Ground Route", "badge-clear"] },
+      order2: { g1: ["HOLD: Blurry Art Setup", "badge-hold"], g2: ["Handoff Suspended", "badge-hold"], g3: ["Awaiting Customer Proof Approval", "badge-hold"] },
+      order3: { g1: ["Vector File Approved", "badge-clear"], g2: ["Priority Floor Queue", "badge-process"], g3: ["SOP Rush Matrix: Active", "badge-clear"] }
+    };
+
+    function runNotionSimulator(btn, orderId) {
+      document.querySelectorAll('.notion-select-btn').forEach(b => b.classList.remove('active-order'));
+      btn.classList.add('active-order');
+      const d = orderData[orderId];
+      const g1 = document.getElementById('gate1Status');
+      const g2 = document.getElementById('gate2Status');
+      const g3 = document.getElementById('gate3Status');
+      g1.innerText = d.g1[0]; g1.className = "notion-badge " + d.g1[1];
+      g2.innerText = d.g2[0]; g2.className = "notion-badge " + d.g2[1];
+      g3.innerText = d.g3[0]; g3.className = "notion-badge " + d.g3[1];
+    }
+
+    /* Sandbox Interactive Control Application Logic */
+    function executeSandboxRule() {
+      const art = document.getElementById('sbArt').value;
+      const time = document.getElementById('sbTime').value;
+      const vendor = document.getElementById('sbVendor').value;
+      const term = document.getElementById('sbTerminal');
+      
+      term.style.color = "#38BDF8";
+      term.innerHTML = "Parsing order parameters against active SOP matrices...<br>";
+      
+      setTimeout(() => {
+        if (art === "pending") {
+          term.style.color = "#F87171";
+          term.innerHTML = "❌ SYSTEM STOP: Failed 'SOP: Factory Submission Checklist'. Low-res asset detected. Blocked order handoff before factory setup charges or imprint production alignment errors occurred.";
+          return;
+        }
+        if (vendor === "maxed") {
+          term.style.color = "#FBBF24";
+          term.innerHTML = "⚠️ CAPACITY WARNING: 'SOP: Processing & Sending Orders' active. Preferred facility over SLA limit. Rerouting purchase order data to backup contract factory.";
+          return;
+        }
+        if (time === "rush") {
+          term.style.color = "#34D399";
+          term.innerHTML = "⚡ RUSH COMPLIANCE PASS: 'SOP: Rush Shipping Policy' triggered. Event In-Hands window protected. Auto-logged approved freight surcharges. Released to print floor.";
+          return;
+        }
+        term.style.color = "#34D399";
+        term.innerHTML = "✅ PIPELINE CLEAR: Pre-flight check criteria passed. Order parameters logged successfully to master Notion tracking board.";
+      }, 400);
+    }
+  </script>
+</body>
+</html>
